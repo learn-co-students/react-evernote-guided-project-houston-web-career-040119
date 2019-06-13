@@ -25,6 +25,9 @@ class Content extends Component {
     return (
       <div className='master-detail-element detail'>
         {this.renderContent()}
+        {/* <div>
+          {this.props.e.target.value} */}
+        {/* </div> */}
       </div>
     );
   }
