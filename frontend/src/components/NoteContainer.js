@@ -11,8 +11,8 @@ class NoteContainer extends Component {
       <Fragment>
         <Search />
         <div className='container'>
-          <Sidebar notes={this.props.notes}/>{/* {this.props.notes.map(note => <Sidebar note={note}/>)}  */}
-          <Content />
+          <Sidebar notes={this.props.notes}/>
+          <Content notes={this.props.notes}/>
         </div>
       </Fragment>
     );

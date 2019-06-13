@@ -11,7 +11,19 @@ import Instructions from './Instructions';
           refactor to get this Content component to work.
 */
 class Content extends Component {
+
+  constructor(){
+    super()
+    this.state = {
+      renderNote: true
+    }
+  }
+
+  
+
+  
   renderContent = () => {
+    console.log(this.props.notes)
     if (false) {
       return <NoteEditor />;
     } else if (false) {
