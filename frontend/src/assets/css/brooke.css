@@ -96,17 +96,17 @@ div.sidebar ul {
 
 div.sidebar ul li {
   list-style: none;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid rgb(165, 192, 192);
   padding: 0 5px;
 }
 
 div.sidebar ul li:first-child {
-  border-top: 1px solid grey;
+  border-top: 1px solid rgb(167, 167, 167);
 }
 
 div.sidebar ul li:hover {
   /* background-color: yellow; */
-  background-image: linear-gradient(#E6E6E6, #F7F7F7);
+  background-image: linear-gradient(#7FFFD4, #7FFFD4);
   background-repeat: no-repeat;
 }
 
