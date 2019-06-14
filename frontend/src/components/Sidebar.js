@@ -6,6 +6,9 @@ import NoteList from './NoteList';
 
 
 class Sidebar extends Component {
+
+  
+
   render() {
     const divStyle={
       overflowY: 'scroll',
@@ -19,7 +22,7 @@ class Sidebar extends Component {
       <div className='master-detail-element sidebar' style={divStyle}>
  
         <NoteList notes={this.props.notes}/>
-        <button onClick>New</button>
+        <button>New</button>
       </div>
     );
   }

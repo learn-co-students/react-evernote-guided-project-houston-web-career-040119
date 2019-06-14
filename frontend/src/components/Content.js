@@ -11,6 +11,9 @@ import Instructions from './Instructions';
           refactor to get this Content component to work.
 */
 class Content extends Component {
+
+
+
   renderContent = () => {
     if (false) {
       return <NoteEditor />;
@@ -23,11 +26,11 @@ class Content extends Component {
 
   render() {
     return (
-      <div className='master-detail-element detail'>
+      <div className='master-detail-element detail' onClick={this.handleClick}>
         {this.renderContent()}
-        {/* <div>
-          {this.props.e.target.value} */}
-        {/* </div> */}
+        <div>
+          {/* {this.props.e.target.value} */}
+        </div>
       </div>
     );
   }

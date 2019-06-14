@@ -8,7 +8,8 @@ class App extends Component {
     super()
     this.state = {
       notes: [],
-      isLoading: false
+      isLoading: false,
+      isSelected: null
     }
   }
 
