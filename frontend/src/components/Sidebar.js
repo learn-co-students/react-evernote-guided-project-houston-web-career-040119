@@ -1,25 +1,11 @@
 import React, { Component } from 'react';
 import NoteList from './NoteList';
-import NoteEditor from './NoteEditor';
 
 
 
 
 
 class Sidebar extends Component {
-  constructor(){
-    super()
-    this.state = ({
-isToggleOn: false
-    })
-  }
-
-  // handleClick(e){
-  //   this.setState({
-  //     isToggleOn: !this.state.isToggleOn
-  //   })
-  // }
-
   render() {
     const divStyle={
       overflowY: 'scroll',
@@ -32,14 +18,8 @@ isToggleOn: false
     return (
       <div className='master-detail-element sidebar' style={divStyle}>
  
-        <NoteList notes={this.props.notes} editnotes={this.props.editnotes} />
-        {/* <button onClick={this.handleClick}>{this.state.isToggleOn ? form() :null */}
-
-      {/* </button> */}
-     <button onClick={() => {this.state.isToggleOn ? 
-     <NoteEditor/> :null}}>CREATE NEW
-
-     </button>
+        <NoteList notes={this.props.notes}/>
+        <button onClick>New</button>
       </div>
     );
   }
