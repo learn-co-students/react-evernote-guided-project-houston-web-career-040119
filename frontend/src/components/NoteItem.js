@@ -2,11 +2,11 @@ import React from 'react';
 // import Content from './Content';
 //props:note&editnotes
 const NoteItem = (props) => {
-  console.log(props)
+  
   return(
     <div>
     <ul className="list-group">
-      <li className="list-group-item" onClick={() => 
+      <li className="list-group-item" onClick={()     => 
        
         {props.editnotes(props.note)}}>
         <h2><b>{props.note.title}</b></h2>

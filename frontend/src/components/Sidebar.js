@@ -36,8 +36,7 @@ isToggleOn: false
         {/* <button onClick={this.handleClick}>{this.state.isToggleOn ? form() :null */}
 
       {/* </button> */}
-     <button onClick={() => {this.state.isToggleOn ? 
-     <NoteEditor/> :null}}>CREATE NEW
+     <button onClick>CREATE NEW
 
      </button>
       </div>

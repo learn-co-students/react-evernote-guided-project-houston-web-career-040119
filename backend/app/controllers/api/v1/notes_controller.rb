@@ -12,6 +12,7 @@ class Api::V1::NotesController < ApplicationController
   end
 
   def update
+    # byebug
     @note.update(note_params)
     render json: @note, status: 200
   end
@@ -28,7 +29,7 @@ class Api::V1::NotesController < ApplicationController
 
   private
   def note_params
-    params.permit(:body, :title, :user_id)
+    params.require(:note).permit(:body, :title, :user_id)
   end
 
   def set_note

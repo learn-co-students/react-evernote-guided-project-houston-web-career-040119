@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # get '/api/v1/users'
   # get '/api/v1/notes'
   # post '/api/v1/notes'
-  # patch '/api/v1/notes/:id'
+  # post '/api/v1/notes/:id'
 
     end
   end
