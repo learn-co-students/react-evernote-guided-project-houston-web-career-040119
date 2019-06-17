@@ -5,6 +5,7 @@ import Instructions from './Instructions';
 
 class Content extends Component {
   render() {
+    console.log(this.props)
     return (
       <div className='master-detail-element detail'>
        <NoteEditor editnotes={this.props.editnotes} selectedNote={this.props.selectedNote} />
