@@ -6,7 +6,7 @@ class NoteEditor extends Component {
     return (
       <div>
       <form className="note-editor">
-        <input type="text" name="title" value={this.props.selectedNote.title} />
+        <input type="text" name="title" value={this.props.selectedNote.title}  />
 
         <textarea name="body" value={this.props.selectedNote.body}/>
         <div className="button-row">

@@ -8,10 +8,16 @@ class App extends Component {
     super()
     this.state = {
       notes: [],
-      isLoading: false
+      isLoading: false,
+      search:''
       // selectedNote: null
     }
   }
+  SearchItem = (e) => {
+    debugger
+  }
+
+
 
   componentDidMount(){
     fetch(`http://localhost:3000/api/v1/users`)
@@ -20,7 +26,8 @@ class App extends Component {
       // console.log(data[0].notes)
       this.setState({
         notes: data[0].notes,
-        isLoading: true
+        isLoading: true,
+        search: data[0].notes
         // selectedNote: null
       })
     })
@@ -48,7 +55,7 @@ class App extends Component {
     return (
       <div className="app">
         <Header />
-        {this.state.isLoading === true ? <NoteContainer notes={this.state.notes} /> : 'Loading...'}
+        {this.state.isLoading === true ? <NoteContainer notes={this.state.notes} /> : 'Loading...'} 
       </div>
     );
   }

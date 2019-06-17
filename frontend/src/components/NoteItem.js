@@ -1,7 +1,7 @@
 import React from 'react';
 // import Content from './Content';
 //props:note&editnotes
-const NoteList = (props) => {
+const NoteItem = (props) => {
   
   return(
     <div>
@@ -19,4 +19,4 @@ const NoteList = (props) => {
  
 };
 
-export default NoteList;
+export default NoteItem;
