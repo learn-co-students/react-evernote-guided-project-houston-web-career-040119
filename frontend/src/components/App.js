@@ -32,23 +32,6 @@ class App extends Component {
       })
     })
   }
-  // const mapStateToProp = (state, props) => {
-  //   const story = state.stories.find(e => e.id === props.match.params.id);
-  //   return { story };
-  // };
-  // editnotes = (list) => {
-  //     this.setState({
-  //     selectedNote: list.target.parentElement.parentElement.innerText
-  //   })
-  // }
-  
-  // doSomething = (e) =>{
-  //   console.log("hi there")
-  //   this.setState({
-      // selectedNote: /*something*/
-  //   })
-  //   debugger
-  // }
 
   render() {
     console.log(this.state.notes)

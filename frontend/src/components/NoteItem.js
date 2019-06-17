@@ -15,8 +15,7 @@ const NoteItem = (props) => {
     </ul>
   </div>
 
-  )
- 
-};
+
+  )}
 
 export default NoteItem;
