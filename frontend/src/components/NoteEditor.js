@@ -8,13 +8,7 @@ class NoteEditor extends Component {
       title: this.props.selectedNote.title,
       body: this.props.selectedNote.body
     }
-
-    
-
-
   }
-
-  
 
   handleChange = (e) => {
     e.preventDefault()
@@ -30,15 +24,11 @@ class NoteEditor extends Component {
     this.props.updateBackend(e,id, this.state.title, this.state.body)
   }
   
-  
-
-  render() {
-    
+  render() {  
     return (
       <div>
       <form className="note-editor" onSubmit={this.handleSubmit}>
         <input type="text" name="title" defaultValue={this.state.title}  onChange={(e) => this.handleChange(e)}/>
-
         <textarea name="body" defaultValue={this.state.body} onChange={(e) => this.handleChange(e)}/>
         <div className="button-row">
           <input className="button" type="submit" value="Save" />
