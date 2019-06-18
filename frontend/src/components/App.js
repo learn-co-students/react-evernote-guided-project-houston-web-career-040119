@@ -76,9 +76,11 @@ class App extends Component {
         // selectedNote: null
       })
     })
+}
 
 
-  }
+
+
 
   render() {
     console.log(this.state.notes)

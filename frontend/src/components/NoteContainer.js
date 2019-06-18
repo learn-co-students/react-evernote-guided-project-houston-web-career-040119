@@ -15,13 +15,32 @@ import NoteForm from './NoteForm'
   // }
 
 class NoteContainer extends Component {
-constructor(){
-  super()
+constructor(props){
+  super(props)
   this.state = {
     selectedNote: null,
     isShowing : false,
     isNew: false
   }
+  }
+
+  updateBackend = (e,myID, title, body) => {
+    let id = myID
+    fetch(`http://localhost:3000/api/v1/notes/${id}`, {
+      method:'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          title: title,
+          body: body
+      })
+    })
+    .then(res => res.json())
+    .then(console.log)
+    .then(this.setState({
+ 
+    }))
   }
 
   editnotes = (note) => {
@@ -46,14 +65,14 @@ createNote = () => {
         <div className='container'>
           <Sidebar notes={this.props.notes} editnotes={this.editnotes} selectedNote={this.state.selectedNote} createNote={this.createNote} />
           {this.state.isShowing 
-          ?<Content editnotes={this.editnotes} notes={this.props.notes} selectedNote={this.state.selectedNote} />
+          ?<Content updateBackend={this.updateBackend} editnotes={this.editnotes} notes={this.props.notes} selectedNote={this.state.selectedNote} />
         : null
         }
-        {
+        {/* {
           this.state.isNew 
           ? <NoteForm addNotes={this.props.addNotes}/> 
           :null
-        }
+        } */}
           
         </div>
       </Fragment>

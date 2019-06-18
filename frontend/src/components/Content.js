@@ -8,7 +8,7 @@ class Content extends Component {
   render() {
     return (
       <div className='master-detail-element detail'>
-       <NoteEditor editnotes={this.props.editnotes} selectedNote={this.props.selectedNote} />
+       <NoteEditor updateBackend={this.props.updateBackend} editnotes={this.props.editnotes} selectedNote={this.props.selectedNote} />
         {/* {this.renderContent()} */}
         {/* <div>
           {this.props.e.target.value} */}
