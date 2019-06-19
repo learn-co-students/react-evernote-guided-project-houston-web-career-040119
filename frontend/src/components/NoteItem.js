@@ -11,6 +11,7 @@ const NoteItem = (props) => {
         {props.editnotes(props.note)}}>
         <h2><b>{props.note.title}</b></h2>
         <p><i>{props.note.body.substr(0,30) + "...."}</i></p>
+        
       </li>
     </ul>
   </div>

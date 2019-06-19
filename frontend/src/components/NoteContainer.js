@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import Search from './Search';
 import Sidebar from './Sidebar';
 import Content from './Content';
+import NoteForm from './NoteForm';
+import '../assets/css/brooke.css'
 
 // renderContent = () => {
   //   if (false) {
@@ -14,19 +16,13 @@ import Content from './Content';
   // }
 
 class NoteContainer extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      selectedNote: null,
-      isShowing : false
-    }
+constructor(props){
+  super(props)
+  this.state = {
+    selectedNote: null,
+    isShowing : false,
+    isNew: false
   }
-
-  editnotes = (note) => {
-    this.setState({
-    selectedNote: note,
-    isShowing: true
-    })
   }
 
   updateBackend = (e,myID, title, body) => {
@@ -44,22 +40,46 @@ class NoteContainer extends Component {
     .then(res => res.json())
     .then(console.log)
     .then(this.setState({
-
+ 
     }))
   }
 
+  editnotes = (note) => {
+    
+    this.setState({
+    selectedNote: note,
+    isShowing: true,
+    isNew:false
+  })
+}
+
+createNote = () => {
+  this.setState({
+    isNew : true,
+    isShowing: false
+  })
+
+}
+
   render() {
     return (
-      <Fragment>
-        <Search />
+      <Fragment >
+        
+        <Search searchNotes={this.props.searchNotes}/>
         <div className='container'>
-          <Sidebar notes={this.props.notes} editnotes={this.editnotes} selectedNote={this.state.selectedNote}/>
+          <Sidebar notes={this.props.notes} editnotes={this.editnotes} selectedNote={this.state.selectedNote} createNote={this.createNote} />
           {this.state.isShowing 
           ?<Content updateBackend={this.updateBackend} editnotes={this.editnotes} notes={this.props.notes} selectedNote={this.state.selectedNote} />
         : null
         }
+        {this.state.isNew 
+          ? <NoteForm addNotes={this.props.addNotes}/> 
+          :null
+        }
+          
           
         </div>
+        
       </Fragment>
     );
   }

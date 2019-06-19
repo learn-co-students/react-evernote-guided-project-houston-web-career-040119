@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import NoteList from './NoteList';
 import NoteEditor from './NoteEditor';
-
-
-
-
+// import NoteForm from './NoteForm';
+// import NoteForm from './NoteForm';
 
 class Sidebar extends Component {
   constructor(){
@@ -14,11 +12,6 @@ isToggleOn: false
     })
   }
 
-  // handleClick(e){
-  //   this.setState({
-  //     isToggleOn: !this.state.isToggleOn
-  //   })
-  // }
 
   render() {
     const divStyle={
@@ -33,12 +26,10 @@ isToggleOn: false
       <div className='master-detail-element sidebar' style={divStyle}>
  
         <NoteList notes={this.props.notes} editnotes={this.props.editnotes} />
-        {/* <button onClick={this.handleClick}>{this.state.isToggleOn ? form() :null */}
-
-      {/* </button> */}
-     <button onClick>CREATE NEW
+     <button onClick={this.props.createNote}>CREATE NEW
 
      </button>
+    
       </div>
     );
   }

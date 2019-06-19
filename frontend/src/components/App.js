@@ -9,47 +9,71 @@ class App extends Component {
     this.state = {
       notes: [],
       isLoading: false,
-      isSelected: null
+      displayNotes:[]
+      // selectedNote: null
     }
   }
 
-  componentDidMount(){
-    fetch(`http://localhost:3000/api/v1/users`)
-    .then(res => res.json())
-    .then(data => {
-      // console.log(data[0].notes)
-      this.setState({
-        notes: data[0].notes,
-        isLoading: true
-        // selectedNote: null
-      })
+  
+  SearchItem = (event) => {
+    const value= event.target.value
+    console.log(event.target.value)
+    this.setState({
+      displayNotes: this.state.notes.filter(note => note.title.toLowerCase().includes(value.toLowerCase()))
     })
   }
-  // const mapStateToProp = (state, props) => {
-  //   const story = state.stories.find(e => e.id === props.match.params.id);
-  //   return { story };
-  // };
-  // editnotes = (list) => {
-  //     this.setState({
-  //     selectedNote: list.target.parentElement.parentElement.innerText
-  //   })
-  // }
-  
-  // doSomething = (e) =>{
-  //   console.log("hi there")
-  //   this.setState({
-      // selectedNote: /*something*/
-  //   })
-  //   debugger
-  // }
+
+
+  addNotes = (note) => {
+    // let arr = this.state.notes
+    // arr.push(note)
+    this.setState({
+      notes: this.state.notes.push(note)
+    }
+    // , ()=>{
+      
+    //   fetch(`http://localhost:3000/api/v1/notes`)
+    // .then(res => res.json())
+    // .then(data => {
+    //   console.log(data)
+    //   this.setState({
+    //     notes: data,
+    //     isLoading: true,
+        
+    //     displayNotes:data
+    //     // selectedNote: null
+    //   })
+    // })
+
+    // }
+    )
+    
+  }
+
+
+  componentDidMount(){
+    fetch(`http://localhost:3000/api/v1/notes`)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      this.setState({
+        notes: data,
+        isLoading: true,
+        displayNotes:data
+      })
+    })
+}
+
+
+
+
 
   render() {
     console.log(this.state.notes)
     return (
       <div className="app">
         <Header />
-        {this.state.isLoading === true ? 
-        <NoteContainer notes={this.state.notes} /> : 'Loading...'}
+        {this.state.isLoading === true ? <NoteContainer notes={this.state.displayNotes} searchNotes={this.SearchItem} addNotes={this.addNotes} /> : 'Loading...'} 
       </div>
     );
   }
