@@ -9,7 +9,6 @@ class App extends Component {
     this.state = {
       notes: [],
       isLoading: false,
-
       displayNotes:[]
       // selectedNote: null
     }
@@ -28,42 +27,31 @@ class App extends Component {
   addNotes = (note) => {
     // let arr = this.state.notes
     // arr.push(note)
-    
     this.setState({
       notes: this.state.notes.push(note)
-    }, ()=>{
+    }
+    // , ()=>{
       
-      fetch(`http://localhost:3000/api/v1/notes`)
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-      this.setState({
-        notes: data,
-        isLoading: true,
+    //   fetch(`http://localhost:3000/api/v1/notes`)
+    // .then(res => res.json())
+    // .then(data => {
+    //   console.log(data)
+    //   this.setState({
+    //     notes: data,
+    //     isLoading: true,
         
-        displayNotes:data
-        // selectedNote: null
-      })
-    })
+    //     displayNotes:data
+    //     // selectedNote: null
+    //   })
+    // })
 
-    })
+    // }
+    )
     
   }
 
 
   componentDidMount(){
-    // fetch(`http://localhost:3000/api/v1/users`)
-    // .then(res => res.json())
-    // .then(data => {
-    //   console.log(data[0].notes)
-    //   this.setState({
-    //     notes: data[0].notes,
-    //     isLoading: true,
-        
-    //     displayNotes:data[0].notes
-    //     // selectedNote: null
-    //   })
-    // })
     fetch(`http://localhost:3000/api/v1/notes`)
     .then(res => res.json())
     .then(data => {
@@ -71,9 +59,7 @@ class App extends Component {
       this.setState({
         notes: data,
         isLoading: true,
-        
         displayNotes:data
-        // selectedNote: null
       })
     })
 }

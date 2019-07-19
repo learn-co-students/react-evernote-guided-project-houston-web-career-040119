@@ -10,10 +10,6 @@ constructor(){
         
     }
 }
-
-
-
-
 handleFormSubmit = (e) => {
     e.preventDefault();
     fetch(`http://localhost:3000/api/v1/notes`,{
@@ -40,7 +36,7 @@ body: JSON.stringify({
 }
 
 setInput = (e) => {
-  
+  e.preventDefault()
     this.setState({
         
      [e.target.name]: e.target.value
@@ -64,11 +60,12 @@ render(){return(
     inputType="text"
     title="Description"
     name="body"
-    placeholder="Enter Description"
+    placeholder="Enter the description" 
     onChange={(e) => this.setInput(e)} />
     <button action={this.handleClearForm} type="primary" title="Submit">SUBMIT</button>
 
     </form>
+
   </div>
 )
 }

@@ -7,7 +7,8 @@ class NoteEditor extends Component {
     super(props)
     this.state = {
       title: this.props.selectedNote.title,
-      body: this.props.selectedNote.body
+      body: this.props.selectedNote.body,
+      displayform:false
     }
   }
 
@@ -16,7 +17,8 @@ class NoteEditor extends Component {
     e.preventDefault()
  
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
+      displayform:true
     })
   }
  
@@ -27,7 +29,10 @@ class NoteEditor extends Component {
   }
   
   
+  CancelNote = (e) => {
+   e.preventDefault()
   
+  }
   
   deleteNote = (id) => {
     
@@ -55,7 +60,8 @@ method: "DELETE"
         <textarea name="body" defaultValue={this.state.body} onChange={(e) => this.handleChange(e)}/>
         <div className="button-row">
           <input className="button" type="submit" value="Save" />
-          <button type="button">Cancel</button>
+
+          <button onClick={() => this.CancelNote}>Cancel</button>
           
           
           <button onClick={() => this.deleteNote(this.props.selectedNote.id)}>Delete</button>

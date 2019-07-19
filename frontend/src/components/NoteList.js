@@ -3,6 +3,7 @@ import NoteItem from './NoteItem';
 
 
 const NoteList = (props) => {
+  // debugger
   console.log(props)
   return (
     <div>
